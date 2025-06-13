@@ -1,6 +1,7 @@
 ---
 const { title, description } = Astro.props;
 const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
+import SEO from '../components/SEO.astro';
 ---
 
 <html lang="en">
@@ -10,6 +11,7 @@ const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.sit
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    <SEO title={title} description={description} />
     <style>
       body {
         font-family: system-ui, sans-serif;
