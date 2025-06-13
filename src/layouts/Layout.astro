@@ -1,7 +1,7 @@
 ---
 const { title, description } = Astro.props;
 const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
-import SEO from '../components/SEO.astro';
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -11,7 +11,6 @@ import SEO from '../components/SEO.astro';
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={`${base}favicon.png`} />
-    <SEO title={title} description={description} />
     <style>
       body {
         font-family: system-ui, sans-serif;
@@ -32,6 +31,11 @@ import SEO from '../components/SEO.astro';
         margin-left: 1rem;
         text-decoration: none;
         font-weight: 500;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+      }
+      nav a.active {
+        border-color: #fff;
       }
       nav a:hover {
         text-decoration: underline;
@@ -57,9 +61,9 @@ import SEO from '../components/SEO.astro';
         </a>
       </div>
       <nav>
-        <a href={base}>Home</a>
-        <a href={`${base}blog/`}>Blog</a>
-        <a href={`${base}about/`}>About</a>
+        <a href={base} class={currentPath === '/' ? 'active' : ''}>Home</a>
+        <a href={`${base}blog/`} class={currentPath.startsWith('/blog') ? 'active' : ''}>Blog</a>
+        <a href={`${base}about/`} class={currentPath.startsWith('/about') ? 'active' : ''}>About</a>
       </nav>
     </header>
 

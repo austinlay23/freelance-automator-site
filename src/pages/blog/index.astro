@@ -3,7 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
 
+const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
 const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 
 <Layout title="Freelance Automator Blog" description="Latest automation tips, tools, and insights for freelancers.">
@@ -13,12 +15,12 @@ const posts = await getCollection('blog');
   </section>
 
   <section style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-    {posts.map(post => (
+    {sortedPosts.map(post => (
       <BlogCard
         title={post.data.title}
         description={post.data.description}
         date={new Date(post.data.pubDate).toLocaleDateString()}
-        link={`/blog/${post.slug}/`}
+        link={`blog/${post.slug}/`}
       />
     ))}
   </section>

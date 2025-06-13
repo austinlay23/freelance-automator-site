@@ -1,9 +1,10 @@
 ---
-const { title, description, link, date } = Astro.props;
+const { title, description, date, link } = Astro.props;
+const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
 ---
 
-<article style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-  <h3 style="margin-top: 0;"><a href={link} style="color: #1a202c; text-decoration: none;">{title}</a></h3>
-  <p style="color: #666;">{description}</p>
-  <small style="color: #999;">{date}</small>
-</article>
+<a href={`${base}${link}`} style="display: block; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05); text-decoration: none; color: inherit;">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <small>{date}</small>
+</a>

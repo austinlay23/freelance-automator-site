@@ -3,32 +3,42 @@ import Layout from '../layouts/Layout.astro';
 import BlogCard from '../components/BlogCard.astro';
 ---
 
-<Layout title="Freelance Automator" description="Smarter Tools. Faster Work. More Freedom.">
-  <section style="padding: 2rem 0;">
-    <h1 style="font-size: 2.5rem;">Welcome to Freelance Automator</h1>
-    <p style="font-size: 1.2rem; max-width: 600px;">
-      Discover the best AI tools, automation workflows, and productivity hacks to help freelancers earn more, save time, and scale smarter.
+<Layout title="Freelance Automator" description="Tools and guides to help freelancers automate income, reduce manual work, and reclaim time.">
+  <section style="padding: 3rem 0; text-align: center;">
+    <h1 style="font-size: 2.8rem; margin-bottom: 1rem;">Smarter Freelancing Starts Here</h1>
+    <p style="font-size: 1.25rem; max-width: 650px; margin: 0 auto 2rem;">
+      Automate your client workflows, content generation, and business growth using free tools and AI. Reclaim your time. Scale your impact.
     </p>
+    <a href="#blog" style="background: #1a202c; color: #fff; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500;">Explore Blog Posts</a>
   </section>
 
-  <section style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-    <BlogCard
-      title="7 Best AI Tools to Automate Freelance Work in 2025"
-      description="Discover the best AI tools to increase freelance productivity and earnings."
-      date="June 13, 2025"
-      link="/blog/article_1/"
-    />
-    <BlogCard
-      title="Toggl vs Clockify: Best Freelance Time Tracker Showdown"
-      description="We compare two leading time tracking apps for freelancers."
-      date="June 12, 2025"
-      link="/blog/article_2/"
-    />
-    <BlogCard
-      title="How to Use ChatGPT for Instant Client Proposals"
-      description="Speed up your freelance proposals using AI-generated drafts."
-      date="June 11, 2025"
-      link="/blog/article_3/"
-    />
+  <section id="blog" style="padding: 2rem 0;">
+    <h2 style="font-size: 2rem; text-align: center; margin-bottom: 2rem;">Latest Automation Guides</h2>
+    <div style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <BlogCard
+        title="7 Best AI Tools to Automate Freelance Work in 2025"
+        description="Discover the best AI tools to increase freelance productivity and earnings."
+        date="June 13, 2025"
+        link="/blog/article_1/"
+      />
+      <BlogCard
+        title="Toggl vs Clockify: Best Freelance Time Tracker Showdown"
+        description="We compare two leading time tracking apps for freelancers."
+        date="June 12, 2025"
+        link="/blog/article_2/"
+      />
+      <BlogCard
+        title="How to Use ChatGPT for Instant Client Proposals"
+        description="Speed up your freelance proposals using AI-generated drafts."
+        date="June 11, 2025"
+        link="/blog/article_3/"
+      />
+    </div>
+  </section>
+
+  <section style="margin-top: 4rem; padding: 2rem; background: #f0f4f8; border-radius: 12px; text-align: center;">
+    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">💌 Get One Freelance Automation Tip Each Week</h3>
+    <p style="max-width: 600px; margin: 0 auto 1.5rem;">Join a free email series designed to make your freelance life easier, one workflow at a time.</p>
+    <a href="#" style="background: #1a202c; color: #fff; padding: 0.6rem 1.25rem; border-radius: 6px; text-decoration: none;">Join the List</a>
   </section>
 </Layout>
