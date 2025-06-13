@@ -1,0 +1,9 @@
+---
+const { title, description, link, date } = Astro.props;
+---
+
+<article style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+  <h3 style="margin-top: 0;"><a href={link} style="color: #1a202c; text-decoration: none;">{title}</a></h3>
+  <p style="color: #666;">{description}</p>
+  <small style="color: #999;">{date}</small>
+</article>
