@@ -1,9 +1,11 @@
 ---
 const { title, description, date, link } = Astro.props;
-const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
+let base = Astro.site.pathname;
+if (!base.endsWith('/')) base += '/';
+const fullLink = `${base}${link}`.replace(/([^:]\/)+/g, "$1");
 ---
 
-<a href={`${base}${link}`} style="display: block; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05); text-decoration: none; color: inherit;">
+<a href={fullLink} style="display: block; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05); text-decoration: none; color: inherit;">
   <h2>{title}</h2>
   <p>{description}</p>
   <small>{date}</small>
