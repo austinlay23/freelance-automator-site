@@ -1,5 +1,6 @@
 ---
 const { title, description } = Astro.props;
+const base = Astro.site.pathname.endsWith('/') ? Astro.site.pathname : Astro.site.pathname + '/';
 ---
 
 <html lang="en">
@@ -8,18 +9,63 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background-color: #f9f9f9;
+        color: #222;
+      }
+      header {
+        background: #1a202c;
+        color: #fff;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav a {
+        color: #fff;
+        margin-left: 1rem;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main {
+        padding: 2rem;
+      }
+      footer {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: #eee;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+      }
+    </style>
   </head>
-  <body style="font-family: sans-serif; margin: 0; padding: 2rem;">
-    <header style="margin-bottom: 2rem;">
-      <h1>{title}</h1>
-      <p style="font-size: 1rem; color: gray;">{description}</p>
+  <body>
+    <header>
+      <div>
+        <a href={base}>
+          <img src={`${base}logo.png`} alt="Freelance Automator logo" style="height: 40px;" />
+        </a>
+      </div>
+      <nav>
+        <a href={base}>Home</a>
+        <a href={`${base}blog/`}>Blog</a>
+        <a href={`${base}about/`}>About</a>
+      </nav>
     </header>
 
     <main>
       <slot />
     </main>
 
-    <footer style="margin-top: 4rem; font-size: 0.9rem; color: #999;">
+    <footer>
       <p>&copy; {new Date().getFullYear()} Freelance Automator. All rights reserved.</p>
     </footer>
   </body>
